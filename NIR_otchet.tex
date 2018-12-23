@@ -1,0 +1,239 @@
+%
+% Шаблон для НИР
+%
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[backend=biber,sorting=none,style=gost-numeric,autolang=other]{biblatex} % библиография
+%\usepackage[backend=biber,sorting=none,style=gost-numeric]{biblatex} % библиография
+\usepackage{mathtext} %русские буквы в формулах
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{formular}
+\usepackage{setspace} % управление междустрочными интервалами
+%поля документа
+\usepackage[left=3cm,right=1cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{misccorr} % точки в конце номеров разделов, использовать перед пакетом ccaption!
+\usepackage{ccaption} % изменения подписей к рисункам и табл.
+
+\usepackage[nooneline]{caption} 
+\captionsetup[table]{justification=raggedright} % заголовок таблицы выравнивается влево
+\captionsetup[figure]{justification=centering,labelsep=endash} % заголовок рисунка - по центру
+
+% отступ перед первым абзацем
+\usepackage{indentfirst}
+%вставка изображений
+\usepackage{graphicx}
+% счетчики
+\usepackage{totcount}
+% управление содержанием
+\usepackage{tocloft}
+% управление таблицами и рисунками
+\usepackage{float}
+
+\newcounter{mycitecount}                                %% Счётчик библиографии
+\AtEveryBibitem{\stepcounter{mycitecount}}              %% Работает для biblatex
+
+\usepackage[figure,      %
+            table,       %
+            mycitecount, xspace ]{totalcount}           %% Подсчёт общего количества объектов в документе
+
+% окружение для листингов - с нумерацией строк слева
+\DefineVerbatimEnvironment{MyCode}{Verbatim}{frame=lines,numbers=left,numberblanklines=false,framesep=5mm}
+
+% автоматическая нумерация листингов
+\newfloat{Program}{phb}{lop}
+\floatname{Program}{Листинг}
+\floatstyle{ruled}
+
+\setcounter{secnumdepth}{3} % глубина нумерации до подразделов
+
+%если нужны точки в оглавлении для разделов - раскомментируйте следующую команду
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\addto\captionsrussian{%
+\renewcommand{\figurename}{Рисунок}%
+\renewcommand{\tablename}{Таблица}%
+}
+
+% дефис в подписи к рисункам
+\captiondelim{ -- } 
+
+% Настройки для окружений с подчеркиваниями для подписей и пр.
+\setFRMfontencoding{T2A}
+\setFRMdfontencoding{T2A}
+% thanks to A.Starikov
+\setFRMfontfamily{cmr}
+\setFRMdfontfamily{ptm}
+\setFRMdfontsize{10pt}
+
+% задает длину поля для подписи на титульной странице
+\newFRMfield{xtitlesign}{32mm}
+
+% поле для факультета или кафедры
+\newFRMfield{fcath}{65mm}
+
+%имя файла с библиографией в формате BibTex
+\addbibresource{rbiblio.bib}
+
+\begin{document}
+
+% счетчики страниц, рисунков, таблиц
+\regtotcounter{page}
+\regtotcounter{figure}
+\regtotcounter{table}
+
+\renewcommand{\refname}{\centerline{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}} 
+\renewcommand{\contentsname}{\centerline{СОДЕРЖАНИЕ}} 
+%\renewcommand{\refname}{Список источников}  % По умолчанию "Список литературы" (article)
+%\renewcommand{\bibname}{Литература}  % По умолчанию "Литература" (book и report)
+
+% титульная страница
+\thispagestyle{empty}
+\begin{center} \small
+\textbf{МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ}\\
+ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ
+ВЫСШЕГО  ОБРАЗОВАНИЯ\\
+«Национальный исследовательский ядерный университет «МИФИ»\\
+\textbf{Обнинский институт атомной энергетики} – \\
+филиал федерального государственного автономного образовательного учреждения высшего\\
+образования «Национальный исследовательский ядерный университет «МИФИ»\\
+(ИАТЭ НИЯУ МИФИ)
+\end{center}
+%\vfill
+\medskip
+
+% Направление подготовки следует уточнять,
+% магистры и бакалавры могут иметь разные наименования
+\begin{center}
+\begin{tabular}{rl}
+Отделение & \useFRMfield{fcath}[\large Интеллектуальные кибернетические системы] \\ 
+Направление подготовки & \useFRMfield{fcath}[\large Информационные системы и технологии] \\ 
+\end{tabular} 
+\end{center}
+
+\vfill
+
+\large 
+
+\begin{center}
+	Научно-исследовательская работа \\
+	
+	\medskip
+	
+	\textbf{\Large 
+		 Контроль электроэнергии и водоснабжения в рамках  умного города
+	}
+	
+\end{center}
+
+\vspace{1cm}
+
+\begin{tabular*}{\textwidth}{lcr}
+Студент группы ИС-М18 & \useFRMfield{xtitlesign} & А.В.Кузнецов\\
+& & \\
+Руководитель & & \\
+д.т.н., профессор ОИКС & \useFRMfield{xtitlesign} & Б.И.Яцало
+\end{tabular*}
+
+
+\vfill
+\large
+
+\begin{center}
+Обнинск, 2018 г
+\end{center}
+
+\onehalfspacing
+
+\pagebreak
+
+% реферат
+\thispagestyle{empty}
+
+\section*{\centering РЕФЕРАТ}
+
+% возможно, кол-во источников придется вставлять вручную
+\total{page} стр., \total{table} табл., \total{figure} рис. , \totalmycitecounts ист. 
+
+УМНЫЙ ГОРОД, УМНЫЙ УНИВЕРСИТЕТ, КОНТРОЛЬ РЕСУРСОВ, ИНТЕРНЕТ ВЕЩЕЙ
+
+Настоящая работа посвящена изучению перспектив создания <<Умного>> города, обзору задач и решений в рамках умного университета и разработке алгоритма поиска проблемных счетчиков электроэнергии и водоснабжения для разных типов ошибок.
+
+Разработанная система учета ресурсов дает возможность жильцам контролировать свои расходы.
+
+\pagebreak
+\thispagestyle{empty}
+
+\section*{\centering ОПРЕДЕЛЕНИЯ}
+«Умный город» --- концепция интеграции нескольких информационных и коммуникационных технологий (ИКТ) и Интернета вещей (IoT решения) для управления городским имуществом
+Интернете вещей (Internet of Things, IoT) --- физические объекты, такие, как устройства, датчики и системы, могут самостоятельно, без вмешательства человека, посылать и принимать данные через Интернет, взаимодействуя друг с другом или с внешней средой. 
+
+\pagebreak
+
+\section*{\centering ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
+АРМ --- автоматизированное рабочее место\\
+ПУ --- приборы учета\\
+ПО --- программное обеспечение\\
+ГВС --- Горячее водоснабжение.\\
+ХВС --- Холодное водоснабжение.\\
+
+
+
+\pagebreak
+
+
+
+\tableofcontents
+% если нужно добавить "Стр." над номерами страниц - раскомментируйте следующую команду
+%\addtocontents{toc}{~\hfill\textbf{Стр.}\par}
+
+\pagebreak
+
+\section*{\centering ВВЕДЕНИЕ}
+\addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+\input{intro} % текст введения в файле intro.tex
+\pagebreak
+
+%\input{Post_zad}
+\pagebreak
+\input{part1}  % первая глава - в файле part1.tex
+\pagebreak
+\input{part2} % вторая глава - в файле part2.tex
+\pagebreak
+
+% если есть еще разделы - сохраните их в соответствующих файлах и раскомментируйте строки ниже, при необходимости добавьте еще
+\input{part3}  % третья глава - в файле part3.tex
+\pagebreak
+
+%\input{part4} % четвертая глава - в файле part4.tex
+%\pagebreak
+
+%\input{part5}  % пятая глава - в файле part5.tex
+%\pagebreak
+
+\section*{\centering ЗАКЛЮЧЕНИЕ}
+\addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
+В России интерес к тематике умного города растет с каждым годом, в том числе потому, что многие города подходят к пределам надежности и функциональности существующей инфраструктуры.
+
+По результатам исследования были выделены три группы проблем при разработке и реализации концепции «умного города» в России.
+
+Рассмотрены задачи и решения в рамках умного университета. 
+
+Описана программа для управления ресурсами электроэнергии и водоснабжения.
+
+Рассмотрены основные алгоритмы поиска проблемных счетчиков электроэнергии и водоснабжения для разных типов ошибок.
+
+% оформление библиографии - вариант с БД
+\pagebreak
+
+\addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}
+% ВАЖНО: для корректного отображения в списке литературы ссылок на англ.языке в bibtex-описание источника следует добавить поле 
+% langid = {english}
+\printbibliography
+
+\end{document}          
+
