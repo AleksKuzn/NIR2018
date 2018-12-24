@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.12)  23 DEC 2018 23:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.12)  24 DEC 2018 07:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1077,13 +1077,7 @@ Overfull \hbox (5.86751pt too wide) in paragraph at lines 57--58
 н-тел-лек-ту-аль-ные счет-
  []
 
-[10] [11] [12]
-Overfull \hbox (42.81287pt too wide) in paragraph at lines 94--95
-[]\T2A/cmr/m/n/14.4  лючевыми на-прав-ле-ни-€-ми ”м-но-го го-ро-да, охва-ты-ва-
-ю-щи-ми все ви-ды социально-
- []
-
-) (./part2.tex [13] [14] [15]
+[10] [11] [12]) (./part2.tex [13] [14] [15]
 Overfull \hbox (8.06302pt too wide) in paragraph at lines 36--37
 []\T2A/cmr/m/n/14.4 автоматизаци€ про-цес-сов ^^U фор-ми-ро-ва-ние об-ра-зо-ва-
 тель-ных про-грамм
@@ -1147,7 +1141,7 @@ sfrm1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.p
 fb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><c:/texlive/2018/
 texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on NIR_otchet.pdf (22 pages, 261866 bytes).
+Output written on NIR_otchet.pdf (22 pages, 261871 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  81 compressed objects within 1 object stream
